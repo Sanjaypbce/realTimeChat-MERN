@@ -1,0 +1,58 @@
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+  }
+
+
+
+#homepageContainer{
+    background-color: #0418D5;
+    width: 100vw;
+    height: 100vh;
+
+}
+
+#homepage { 
+    display: flex;
+    align-items: center;
+}
+
+.themecolor{
+    color:#0418D5 ;
+}
+
+#homenavi {
+    margin:0 auto;
+    height: 230px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    background-color:white;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 351px;
+
+}
+
+.buttonContainer{
+    margin: 20px;
+}
+.apptitle h1 {
+    text-align: center;
+    color: white;
+    padding: 100px;
+}
+
+#homepageContainer p{
+    text-align: center;
+    color: #000;
+}
+
+.buttonContainer a button{
+    margin: 20px 0;
+}
+

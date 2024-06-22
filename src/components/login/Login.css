@@ -1,0 +1,78 @@
+h1{
+    text-align: center;
+}
+
+#login{
+    width: 400px;
+   
+    margin: 100px auto;
+}
+
+.form-check label{
+    height: 40px !important;
+}
+
+h6 {
+    width: 100%; 
+    text-align: center; 
+    border-bottom: 1px solid #000; 
+    line-height: 0.1em;
+    margin: 10px 0 20px; 
+ } 
+ 
+ h6 span { 
+     background:#fff; 
+     padding:0 10px; 
+ }
+
+ #othersignin{
+    width: 500px;
+    margin: 0 auto;
+
+ }
+
+ #keepmesignin{
+    width: 200px;
+    margin: 0 auto;
+ }
+
+ #loginuseremail{
+    height: 20px !important;
+    padding: 10px  !important;
+
+ }
+
+ .othersigninoptions{
+    width: 20px;
+    height: 20px;
+   
+    
+ }
+
+ .optionContainer{
+    width: 60px;
+    padding: 20px;
+    border-radius: 20px;
+    border: 0.1px solid aliceblue;
+ 
+
+ }
+
+
+ .navbar {
+   
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .navbar a {
+    display: block;
+    color: rgb(68, 68, 183);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }

@@ -1,0 +1,21 @@
+/* messageComponent.module.css */
+
+.chatMessage {
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  max-width: 400px; /* Adjust width as needed */
+  margin: 10px 10px;
+}
+
+.otherUserMessage {
+  background-color: #f0f0f0;
+  color: #333;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  max-width: 400px; /* Adjust width as needed */
+  margin: 10px 10px;
+}
