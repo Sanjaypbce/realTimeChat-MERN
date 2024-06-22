@@ -51,7 +51,6 @@ const Login = () => {
         setError(true);
       }
     } catch (error) {
-      // Handle errors here
       console.error("Error occurred:", error);
     }
   };
