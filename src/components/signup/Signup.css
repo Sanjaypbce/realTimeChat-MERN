@@ -1,0 +1,83 @@
+#register{
+    padding-top: 50px;
+}
+
+
+#registerpageContainer{
+    background-color :white ;
+    height: 100vh;
+    width: 100vw;
+
+}
+
+#registerpageContainer h1{
+    margin: 0 100px;
+}
+
+
+#register form {
+    position: relative;
+    background-color: white;
+    border-radius: 20px;
+  
+    padding: 20px;
+    width: 400px;
+     margin: 0px auto;
+}
+
+#register form label{
+    color: #0275db ;
+
+}
+.white{
+    color: white;
+}
+#register h2{
+    color: #0275db;
+    text-align: center;
+
+}
+
+ /* changes */
+ /* The message box is shown when the user clicks on the password field */
+ #message,#message1,#message2 {
+    display:none;
+    color: #000;
+    position: fixed;
+  }
+
+ #userfound{
+  color: red;
+  font-size: 8px;
+  display: none;
+  position: fixed;
+
+ }
+  #message span ,#message1 span,#message2 span{
+    /* padding: 10px 35px; */
+    font-size: 8px;
+  }
+  
+  /* Add a green text color and a checkmark when the requirements are right */
+  .valid {
+    color: green;
+  }
+  
+  .valid:before {
+    position: relative;
+    /* left: -35px; */
+    content: "✔";
+  }
+  
+  /* Add a red text color and an "x" when the requirements are wrong */
+  .invalid {
+    color: red;
+  }
+  
+  .invalid:before {
+    position: relative;
+    /* left: -35px; */
+    content: "✖";
+  }
+
+ 

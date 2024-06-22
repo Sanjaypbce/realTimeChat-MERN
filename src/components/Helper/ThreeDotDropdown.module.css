@@ -1,0 +1,25 @@
+.acountPop {
+  position: fixed;
+  right: 20px;
+  top: 40px; /* Adjusted to provide better spacing from the top */
+  border-radius: 10px; /* Adjusted for a more subtle rounding */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+  width: 210px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.acountPopMenu {
+  flex: 1; /* Ensures each menu item takes up equal space */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.acountPopMenu:hover {
+  background-color: #f0f0f0; /* Change background color on hover */
+}
