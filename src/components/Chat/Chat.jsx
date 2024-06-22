@@ -60,13 +60,6 @@ const Chat = ({ chatPatner }) => {
 
     socket.on("roomMessage", ({ actualRoomId, message }) => {
       console.log(`Received message in room ${actualRoomId}}`);
-      // console.log({ roomId });
-      // console.log("t", roomId == JSON.stringify(actualRoomId));
-      // if (roomId == actualRoomId) {
-      //   console.log({ messages });
-      //   console.log({ message });
-      //   setMessages((prevMessages) => [...prevMessages, message]);
-      // }
       fetchMessage();
     });
 
