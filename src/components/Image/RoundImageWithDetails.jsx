@@ -3,15 +3,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
 
 const RoundImageWithDetails = ({ src, alt, details }) => {
-  const [showDetails, setShowDetails] = useState(false);
+  // const [showDetails, setShowDetails] = useState(false);
 
-  const handleMouseEnter = () => {
-    setShowDetails(true);
-  };
+  // const handleMouseEnter = () => {
+  //   setShowDetails(true);
+  // };
 
-  const handleMouseLeave = () => {
-    setShowDetails(false);
-  };
+  // const handleMouseLeave = () => {
+  //   setShowDetails(false);
+  // };
 
   return (
     <div style={{ position: "relative", display: "inline-block" }}>
@@ -27,11 +27,11 @@ const RoundImageWithDetails = ({ src, alt, details }) => {
       ) : (
         <FontAwesomeIcon
           icon={faCircleUser}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
+          // onMouseEnter={handleMouseEnter}
+          // onMouseLeave={handleMouseLeave}
         />
       )}
-      {showDetails && (
+      {/* {showDetails && (
         <div
           style={{
             position: "absolute",
@@ -43,10 +43,9 @@ const RoundImageWithDetails = ({ src, alt, details }) => {
             boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",
           }}
         >
-          <h3>Contact Details</h3>
           <p>{details}</p>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

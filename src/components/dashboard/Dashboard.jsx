@@ -116,7 +116,10 @@ function Sidebar({ users, chatPatner, setChatpatner, currentUser }) {
             onClick={(key) => {
               setChatpatner(currentUser);
             }}
-            style={{ background: "azure" }}
+            style={{
+              background: theme === "dark" ? "#252c38" : "azure",
+              color: theme === "dark" ? "#ffffff" : "#252c38",
+            }}
           >
             Me
           </li>

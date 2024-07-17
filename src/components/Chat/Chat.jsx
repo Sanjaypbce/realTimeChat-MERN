@@ -20,6 +20,7 @@ const Chat = ({ chatPatner }) => {
   const { user } = useSelector((state) => state.user);
   const inputElement = useRef();
   const theme = useSelector((state) => state.theme.theme);
+
   const [roomId, setRoomId] = useState(" ");
   // const [socket, setSocket] = useState(null);;
   const fetchMessage = async () => {
@@ -124,21 +125,17 @@ const Chat = ({ chatPatner }) => {
       ) : (
         <>
           <form id="form" onSubmit={handleSubmit}>
-            <ChatNav
-              chatPatner={chatPatner}
-              style={{
-                backgroundColor: theme === "dark" ? "#252c38" : "",
-                color: theme === "dark" ? "#fff" : "",
-              }}
-            />
+            <ChatNav chatPatner={chatPatner} />
 
             <div>
               <div
                 className="message-section"
                 style={{
-                  height: "80vh",
+                  height: "calc(100vh - 128px)",
                   overflowY: "auto",
                   scrollbarWidth: "none",
+                  backgroundColor: theme === "dark" ? "#252c38" : "",
+                  color: theme === "dark" ? "#fff" : "",
                 }}
               >
                 {messages &&
@@ -150,6 +147,12 @@ const Chat = ({ chatPatner }) => {
                             ? "d-flex justify-content-end"
                             : "d-flex justify-content-start"
                         }
+                        style={{
+                          margin:
+                            item.sender == user._id
+                              ? "0 10px 0 0"
+                              : "0 0 0 10px",
+                        }}
                       >
                         {item.sender == user._id ? (
                           <>
@@ -178,30 +181,35 @@ const Chat = ({ chatPatner }) => {
                     );
                   })}
               </div>
-              <div>
-                <div
-                  className="mb-3  d-flex justify-content-evenly fixed-bottom "
-                  style={{ padding: "10px", gap: "20px", marginLeft: "220px" }}
-                >
-                  <input
-                    className="form-control"
-                    id="exampleFormControlInput1"
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
+              <div
+                className="d-flex justify-content-evenly fixed-bottom "
+                style={{
+                  padding: "10px",
+                  gap: "20px",
+                  marginLeft: "195px",
+                  backgroundColor: theme === "dark" ? "#252c38" : "",
+                  color: theme === "dark" ? "#fff" : "",
+                  height: "60px",
+                }}
+              >
+                <input
+                  className="form-control"
+                  id="exampleFormControlInput1"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                />
+
+                <div>
+                  <FontAwesomeIcon
+                    icon={faFileUpload}
+                    className="icon"
+                    size="lg"
                   />
-
-                  <div>
-                    <FontAwesomeIcon
-                      icon={faFileUpload}
-                      className="icon"
-                      size="lg"
-                    />
-                  </div>
-
-                  <button type="submit" className="btn btn-primary">
-                    send
-                  </button>
                 </div>
+
+                <button type="submit" className="btn btn-primary">
+                  send
+                </button>
               </div>
             </div>
           </form>

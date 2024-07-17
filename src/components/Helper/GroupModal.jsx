@@ -47,13 +47,17 @@ const GroupModal = ({ showModal, setShowModal, users }) => {
           onClick={(e) => e.stopPropagation()}
         >
           <div className="modal-content">
-            <div className="modal-header">
+            <div
+              className="modal-header"
+              style={{ justifyContent: "space-between" }}
+            >
               <h5 className="modal-title">Create Group</h5>
               <button
                 type="button"
                 className="close"
                 onClick={toggleModal}
                 aria-label="Close"
+                style={{ border: "none", color: "red", background: "white" }}
               >
                 <span aria-hidden="true">&times;</span>
               </button>
