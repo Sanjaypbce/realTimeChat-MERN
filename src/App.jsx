@@ -4,8 +4,6 @@ import Login from "./components/login/Login";
 import Homepage from "./components/homepage/Homepage";
 import Dashboard from "./components/dashboard/Dashboard";
 import { Route, Routes } from "react-router-dom";
-import { Provider } from "react-redux";
-import store from "./Store/Store";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUserData } from "./Store/Slice/UserSlice";
 import { useEffect } from "react";

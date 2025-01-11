@@ -3,8 +3,10 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "./Signup.css";
 import axios from "axios";
+const url = import.meta.env.VITE_API_URL;
 
 const Signup = () => {
+  console.log("url", url);
   const navigate = useNavigate();
   const [FormData, setFormDate] = useState({
     name: "",
@@ -87,7 +89,7 @@ const Signup = () => {
     e.preventDefault();
     console.log(FormData);
     axios
-      .post("http://localhost:4000/signin/verify", FormData)
+      .post(`${url}/signin/verify`, FormData)
       .then(function (response) {
         if (response.data) {
           navigate("/login");

@@ -8,9 +8,11 @@ import RoundImageWithDetails from "../Image/RoundImageWithDetails";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import io from "socket.io-client";
-const socket = io("http://localhost:5000");
+
 const Jwttoken = localStorage.getItem("token");
 import { v4 as uuidv4 } from "uuid";
+const url = import.meta.env.VITE_API_URL;
+const socket = io(url);
 
 const Chat = ({ chatPatner }) => {
   const [message, setMessage] = useState("");
@@ -20,6 +22,7 @@ const Chat = ({ chatPatner }) => {
   const { user } = useSelector((state) => state.user);
   const inputElement = useRef();
   const theme = useSelector((state) => state.theme.theme);
+
   const [roomId, setRoomId] = useState(" ");
   // const [socket, setSocket] = useState(null);;
   const fetchMessage = async () => {
@@ -33,7 +36,7 @@ const Chat = ({ chatPatner }) => {
       console.log({ params });
 
       try {
-        const response = await axios.get("http://localhost:4000/message/", {
+        const response = await axios.get(`${url}/message/`, {
           params: params,
           headers: {
             Authorization: `${Jwttoken}`,
@@ -60,13 +63,6 @@ const Chat = ({ chatPatner }) => {
 
     socket.on("roomMessage", ({ actualRoomId, message }) => {
       console.log(`Received message in room ${actualRoomId}}`);
-      // console.log({ roomId });
-      // console.log("t", roomId == JSON.stringify(actualRoomId));
-      // if (roomId == actualRoomId) {
-      //   console.log({ messages });
-      //   console.log({ message });
-      //   setMessages((prevMessages) => [...prevMessages, message]);
-      // }
       fetchMessage();
     });
 
@@ -92,7 +88,7 @@ const Chat = ({ chatPatner }) => {
         receiver: chatPatner._id,
         Message: message,
       };
-      const result = axios.post("http://localhost:4000/message/", messageNew, {
+      const result = axios.post(`${url}/message/`, messageNew, {
         headers: {
           Authorization: `${Jwttoken}`,
         },
@@ -131,21 +127,17 @@ const Chat = ({ chatPatner }) => {
       ) : (
         <>
           <form id="form" onSubmit={handleSubmit}>
-            <ChatNav
-              chatPatner={chatPatner}
-              style={{
-                backgroundColor: theme === "dark" ? "#252c38" : "",
-                color: theme === "dark" ? "#fff" : "",
-              }}
-            />
+            <ChatNav chatPatner={chatPatner} />
 
             <div>
               <div
                 className="message-section"
                 style={{
-                  height: "80vh",
+                  height: "calc(100vh - 128px)",
                   overflowY: "auto",
                   scrollbarWidth: "none",
+                  backgroundColor: theme === "dark" ? "#252c38" : "",
+                  color: theme === "dark" ? "#fff" : "",
                 }}
               >
                 {messages &&
@@ -157,6 +149,12 @@ const Chat = ({ chatPatner }) => {
                             ? "d-flex justify-content-end"
                             : "d-flex justify-content-start"
                         }
+                        style={{
+                          margin:
+                            item.sender == user._id
+                              ? "0 10px 0 0"
+                              : "0 0 0 10px",
+                        }}
                       >
                         {item.sender == user._id ? (
                           <>
@@ -185,30 +183,35 @@ const Chat = ({ chatPatner }) => {
                     );
                   })}
               </div>
-              <div>
-                <div
-                  className="mb-3  d-flex justify-content-evenly fixed-bottom "
-                  style={{ padding: "10px", gap: "20px", marginLeft: "220px" }}
-                >
-                  <input
-                    className="form-control"
-                    id="exampleFormControlInput1"
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
+              <div
+                className="d-flex justify-content-evenly fixed-bottom "
+                style={{
+                  padding: "10px",
+                  gap: "20px",
+                  marginLeft: "195px",
+                  backgroundColor: theme === "dark" ? "#252c38" : "",
+                  color: theme === "dark" ? "#fff" : "",
+                  height: "60px",
+                }}
+              >
+                <input
+                  className="form-control"
+                  id="exampleFormControlInput1"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                />
+
+                <div>
+                  <FontAwesomeIcon
+                    icon={faFileUpload}
+                    className="icon"
+                    size="lg"
                   />
-
-                  <div>
-                    <FontAwesomeIcon
-                      icon={faFileUpload}
-                      className="icon"
-                      size="lg"
-                    />
-                  </div>
-
-                  <button type="submit" className="btn btn-primary">
-                    send
-                  </button>
                 </div>
+
+                <button type="submit" className="btn btn-primary">
+                  send
+                </button>
               </div>
             </div>
           </form>

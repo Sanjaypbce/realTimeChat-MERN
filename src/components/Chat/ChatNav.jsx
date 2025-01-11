@@ -13,9 +13,19 @@ import RoundImageWithDetails from "../Image/RoundImageWithDetails";
 const ChatNav = ({ chatPatner }) => {
   const { loading, user } = useSelector((state) => state.user);
   const [open, setOpen] = useState(false);
+  const theme = useSelector((state) => state.theme.theme);
+  console.log;
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light ">
+      <nav
+        className="navbar navbar-expand-lg "
+        style={{
+          backgroundColor: theme === "dark" ? "#252c38" : "",
+          color: theme === "dark" ? "#fff" : "",
+          borderBottom: "1.5px solid rgb(234, 237, 247)",
+          height: "68px",
+        }}
+      >
         <div class="d-flex justify-content-between" style={{ width: "100%" }}>
           <div class="d-flex justify-content-start">
             <RoundImageWithDetails />
