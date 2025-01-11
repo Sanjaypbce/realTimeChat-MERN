@@ -16,6 +16,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { toggleTheme } from "../../Store/Slice/themeSlice";
 
 const token = localStorage.getItem("token");
+const url = import.meta.env.VITE_API_URL;
 
 const Dashboard = () => {
   const [users, setUsers] = useState(null);
@@ -25,7 +26,7 @@ const Dashboard = () => {
   console.log("us", user);
   const fetchData = () => {
     axios
-      .get("http://localhost:4000/login/getAllUsers", {
+      .get(`${url}/login/getAllUsers`, {
         headers: {
           Authorization: `${token}`,
         },
@@ -44,7 +45,10 @@ const Dashboard = () => {
       });
   };
   useEffect(() => {
-    if (user) fetchData();
+    console.log("user--->", user);
+    if (user) {
+      fetchData();
+    }
   }, [user]);
   return (
     <>

@@ -11,6 +11,7 @@ const initialState = {
 };
 
 export const userReducer = (state = initialState, action) => {
+  console.log("initialState---->", state);
   switch (action.type) {
     case USER_DATA_REQUEST:
       return { ...state, loading: true };

@@ -8,9 +8,11 @@ import RoundImageWithDetails from "../Image/RoundImageWithDetails";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import io from "socket.io-client";
-const socket = io("http://localhost:5000");
+
 const Jwttoken = localStorage.getItem("token");
 import { v4 as uuidv4 } from "uuid";
+const url = import.meta.env.VITE_API_URL;
+const socket = io(url);
 
 const Chat = ({ chatPatner }) => {
   const [message, setMessage] = useState("");
@@ -34,7 +36,7 @@ const Chat = ({ chatPatner }) => {
       console.log({ params });
 
       try {
-        const response = await axios.get("http://localhost:4000/message/", {
+        const response = await axios.get(`${url}/message/`, {
           params: params,
           headers: {
             Authorization: `${Jwttoken}`,
@@ -86,7 +88,7 @@ const Chat = ({ chatPatner }) => {
         receiver: chatPatner._id,
         Message: message,
       };
-      const result = axios.post("http://localhost:4000/message/", messageNew, {
+      const result = axios.post(`${url}/message/`, messageNew, {
         headers: {
           Authorization: `${Jwttoken}`,
         },
