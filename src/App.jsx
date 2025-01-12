@@ -14,6 +14,7 @@ function App() {
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.user);
   const token = localStorage.getItem("token");
+  console.log("token", token);
 
   useEffect(() => {
     if (token) {
@@ -26,6 +27,8 @@ function App() {
       navigate("/dashboard");
     }
   }, [user]);
+
+  console.log("home page===>");
 
   return (
     <Routes>

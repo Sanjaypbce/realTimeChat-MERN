@@ -32,7 +32,7 @@ export const fetchUserData = createAsyncThunk(
         },
       });
 
-      console.log("here", { response });
+      console.log("fetchUserData", { response });
 
       return response.data;
     } catch (error) {
